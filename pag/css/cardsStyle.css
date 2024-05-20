@@ -1,0 +1,88 @@
+.wrapper {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuadro {
+    height:400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+.carta {
+    background: rgba(77, 69, 199, 0.25);
+    width: 80px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.carta > .row {
+    
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.carta > .row > .icono {
+
+    background: rgba(23, 21, 61, 0.25);
+    color: white;
+    border-radius: 20px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 27px;
+    margin-bottom: 25px;
+}
+
+ul {
+    width: 420px;
+}
+.carta > .row > .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 20px;
+    overflow: hidden;
+    height: 350px;
+    width: 450px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+
+.description p {
+    color: #b0b0ba;
+    padding-top: 5px;
+}
+
+.description h4 {
+    text-transform: uppercase;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}

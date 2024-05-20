@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="sp">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+ 
+  <!-- Custom style -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/icon.png">
+
+  <!-- Enlace al archivo CSS de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <div class="first">
+    <!-- ============================================
+  ===================== HEADER =================== -->
+
+    <header class="shadow-md">
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand mr-5" href="../index.html"><img src="../images/logo.png" alt="" width="400px"></a>
+        <!-- navbar brand used to add logo in start of navbar, can also use text instead -->
+
+        
+        <!-- menu -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- ID = DATA TARGET FOR COLLAPSE BUTTON-->
+          <ul class="navbar-nav ml-auto">
+            <!-- margin left auto: ml-auto: does auto margin to left -->
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">
+                <i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <!-- dropdown menu -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                style="cursor: pointer;"><i class="fa-solid fa-play"></i> Simular</a>
+              <div class="dropdown-menu" id="custom-dropdown-menu">
+                <a class="dropdown-item" href="../FCFS/fcfs.html">FIFO</a>
+                <a class="dropdown-item" href="../SSTF/sstf.html">SSTF</a>
+
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html"><i class="fa-solid fa-address-card"></i> Acerca de mí</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /menu -->
+      </div>
+    </nav>
+    <!-- /Navbar -->
+
+    </header>
+
+    <!-- ============================================
+    ===================== MAIN =================== -->
+    <div class="py-3 mb-3" >
+      <div class="container" style="margin-top: 70px;">
+
+
+        <!-- POSTS -->
+        <div class="col-md-12">
+
+          <!-- Title -->
+          <h2>Acerca De</h2>
+          <!-- Author -->
+          <p class="lead">
+            Esta página web ha sido desarrollada para usos académicos.
+          <p class="lead">
+            Esta página ha sido mejorada por Leonardo Trejos, bajo la base elaborada por 
+            Pandit Deendayal.
+          </p>
+
+          <h3>Sistemas Operativos</h3>
+        </div>
+
+        <div class="last">
+            <div class="col-md-4 mx-auto mb-4 text-center">
+              <div class="p-2 shadow-sm rounded">
+                <!-- About -->
+
+                <img src="../images/leonardo.JPEG"
+                  class="img-fluid img-thumbnail" width="250" alt="Leonardo Trejos">
+                <h4 style="margin-top: 25px;">Leonardo Trejos</h4>
+                <p>
+                  Estudiante Ingeniería de Sistemas y Computación
+                </p>
+              </div>
+            </div>
+        </div>
+
+
+        <!-- /container -->
+      </div>
+    </div>
+        <!--==============================
+      =============FOOTER ============-->
+      <div class="footer">
+        <div class="container">
+          <!-- Logo - About - Contact -->
+          <div class="row py-3 text-light">
+  
+            <!-- Logo -->
+            <div class="col-lg-3">
+              <a href="../index.html"><img src="../images/logo-footer.png" class="footer-logo img-fluid" width="200"
+                  draggable="false" alt="Logo"></a>
+            </div>
+  
+            <!-- About -->
+            <div class="col-lg">
+              <h3>Acerca</h3>
+              <p>
+                Esta página fue diseñada por Leonardo Trejos, estudiante
+                de Ingeniería de Sistemas y Computación de la UTP, con ayuda de diseño de @manavukani
+              </p>
+            </div>
+            <div class="col-lg-2">
+              <h3>Accesos Rápidos</h3>
+              <div class="footer-links">
+                <a href="fcfs-info.html">FIFO</a>
+                <a href="sstf-info.html">SSTF</a>
+              </div>
+            </div>
+  
+            <!-- /contact me -->
+            <div class="col-lg-2">
+              <h3>Contáctame</h3>
+              <div class="footer-links">
+                <a href="https://www.instagram.com/leotrejosb/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/leotrejosb"><i class="fa-brands fa-github"></i></a>
+                <a href="https://web.facebook.com/leonardo.trejosbuenaventura"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/leonardo-trejos-buenaventura-9a15ba241/"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- /Logo - About - Contact -->
+  
+        </div>
+        <!-- /container -->
+      </div>
+      <!--/footer-->
+
+  </div> <!-- first -->
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- jQuery.js -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap.min.js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <!-- Navbar -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    var nav = document.querySelector('nav');
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 20) {
+        nav.classList.add('navbar-scrolled', 'shadow');
+      } else {
+        nav.classList.remove('navbar-scrolled', 'shadow');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

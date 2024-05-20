@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SSTF - Disk Scheduling Algorithms</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom style -->
+  <link rel="stylesheet"type="text/css" href="css/cardsStyle.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/icon.png">
+
+</head>
+
+<body>
+
+  <!-- ============================================
+  ===================== HEADER =================== -->
+
+  <header class="shadow-md">
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+      <!-- Logo -->
+      <a class="navbar-brand mr-5" href="../index.html"><img src="../images/logo.png" alt="" width="400px"></a>
+      <!-- navbar brand used to add logo in start of navbar, can also use text instead -->
+
+      
+      <!-- menu -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- ID = DATA TARGET FOR COLLAPSE BUTTON-->
+        <ul class="navbar-nav ml-auto">
+          <!-- margin left auto: ml-auto: does auto margin to left -->
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">
+              <i class="fa-solid fa-house"></i> Inicio</a>
+          </li>
+          <!-- dropdown menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              style="cursor: pointer;"><i class="fa-solid fa-play"></i> Simular</a>
+            <div class="dropdown-menu" id="custom-dropdown-menu">
+              <a class="dropdown-item" href="../FCFS/fcfs.html">FIFO</a>
+              <a class="dropdown-item" href="../SSTF/sstf.html">SSTF</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html"><i class="fa-solid fa-address-card"></i> Acerca de mí</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /menu -->
+    </div>
+  </nav>
+  <!-- /Navbar -->
+  </header>
+
+
+  <!-- ============================================
+  ===================== MAIN =================== -->
+
+  <div class="py-3 mb-3">
+    <div class="container">
+
+      <h1>SSTF: Shortest Seek Time First</h1>
+
+      </br>
+
+      <p>En el algoritmo de programación de disco SSTF (tiempo de búsqueda más corto primero), primero tenemos que calcular el tiempo 
+        de búsqueda. Es decir, antes de atender cualquier solicitud, se calcula el tiempo de búsqueda para cada solicitud y 
+        luego se atenderá la solicitud con el menor tiempo de búsqueda. 
+        <br> Si definimos en términos de hardware, entonces, las solicitudes que se cierran en el disco
+        La posición de la cabeza se servirá primero. SSTF también tiene como objetivo superar algunas de las limitaciones de FIFO.
+      </p>
+
+      </br>
+      <div class="wrapper">
+        <div class="cuadro">
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="carta">
+                <div class="row">
+                   
+                    <div class="icono">
+                      <p style="writing-mode:vertical-lr; transform: rotate(180deg);">Ventajas</p>
+                    </div>
+                    <div class="description">
+                        <ul>
+                          <li>Mejor rendimiento en comparación con FIFO.</li>
+                          <li>El tiempo de respuesta y el tiempo de espera es menor.</li>
+                          <li>En FCFS, se otorga una oportunidad justa a cada solicitud.</li>
+                          <li>Mayor rendimiento, ayuda en el sistema de procesamiento por lotes. </li>
+                        </ul>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c2" >
+            <label for="c2" class="carta">
+                <div class="row">
+                    <div class="icono">
+                      <p class="titulo" style="writing-mode:vertical-lr; transform: rotate(180deg);">Desventajas</p>
+                    </div>
+                    <div class="description">
+                      <ul>
+                        <li>SSTF puede llevar mucho tiempo debido a los cambios frecuentes.</li>
+                        <li>Puede haber posibilidades de inanición, ya que está diseñado para atender primero las solicitudes más cercanas en comparación con las
+                          los más lejanos.</li>
+                        <li>Falta de previsibilidad.</li>
+                        <li>Hay posibilidades de gastos generales</li>
+                      </ul>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c3" >
+            <label for="c3" class="carta">
+              <div class="row">
+                <div class="icono">
+                  <p class="titulo" style="writing-mode:vertical-lr; transform: rotate(180deg);">Ejemplo</p>
+                </div>
+                <div class="description">
+                  <ul>
+                    <li>
+                      Considere un disco que contiene 200 pistas (0-199).
+                       La cola de solicitudes incluye las pistas número
+                        28, 43, 7, 31, 14, 37, 2, 5, 26 respectivamente.
+                         <br>La posición actual del cabezal de lectura/escritura es 26.
+                    </li>
+                    <li>
+                      Antes de resolver el ejemplo anterior, debemos conocer el tiempo de búsqueda. <br>
+                      Tiempo de búsqueda = Destino - Origen o Origen - Destino
+                    </li>
+                    <li>
+                      Entonces, tomaremos una línea de seguimiento entre 0 y 199.
+                    </li>
+                    <li>
+                      La posición actual del cabezal de lectura/escritura es 28. Entonces, comenzamos en 28.
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            </label>
+        </div>
+      </div>
+
+      <h3> Ejemplo: </h3>
+
+      <ul>
+        
+
+        <br>
+        <img style="width: 900px;height: auto;" src="images/sstf-graph.jpg" alt="graph of example">
+        <br> <br>
+      </ul>
+
+      <h3>Pasos para la implementación del algoritmo:</h3>
+      <ol>
+
+        <li>
+          Encuentre la distancia positiva de todas las pistas en la matriz de solicitud desde el cabezal.
+
+        </li>
+        <li>
+          Encuentre una pista del conjunto solicitado a la que aún no se haya accedido o no se haya realizado mantenimiento y que tenga una distancia mínima desde la cabeza.
+        </li>
+        <li>
+          Incrementa el recuento total de búsqueda con esta distancia.
+        </li>
+        <li>
+          La posición de pista actualmente en servicio ahora se convierte en la nueva posición de cabeza.
+        </li>
+
+        <li>
+          Vaya al paso 1 hasta que no se hayan atendido todas las pistas en la matriz de solicitud.
+        </li>
+      </ol>
+      <p>
+        <b> Complejidad: O ( N<sup>2</sup> ) &emsp; </b>
+      </p>
+
+      <a class="simulate" href="../SSTF/sstf.html">Simular</a>
+
+    </div>
+    <!-- /container -->
+  </div>
+
+  <!--==============================
+      =============FOOTER ============-->
+      <div class="footer">
+        <div class="container">
+          <!-- Logo - About - Contact -->
+          <div class="row py-3 text-light">
+  
+            <!-- Logo -->
+            <div class="col-lg-3">
+              <a href="../index.html"><img src="../images/logo-footer.png" class="footer-logo img-fluid" width="200"
+                  draggable="false" alt="Logo"></a>
+            </div>
+  
+            <!-- About -->
+            <div class="col-lg">
+              <h3>Acerca</h3>
+              <p>
+                Esta página fue diseñada por Leonardo Trejos, estudiante
+                de Ingeniería de Sistemas y Computación de la UTP, con ayuda de diseño de @manavukani
+              </p>
+            </div>
+            <div class="col-lg-2">
+              <h3>Accesos Rápidos</h3>
+              <div class="footer-links">
+                <a href="fcfs-info.html">FIFO</a>
+                <a href="sstf-info.html">SSTF</a>
+              </div>
+            </div>
+  
+            <!-- /contact me -->
+            <div class="col-lg-2">
+              <h3>Contáctame</h3>
+              <div class="footer-links">
+                <a href="https://www.instagram.com/leotrejosb/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/leotrejosb"><i class="fa-brands fa-github"></i></a>
+                <a href="https://web.facebook.com/leonardo.trejosbuenaventura"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/leonardo-trejos-buenaventura-9a15ba241/"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- /Logo - About - Contact -->
+  
+        </div>
+        <!-- /container -->
+      </div>
+      <!--/footer-->
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- jQuery.js -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap.min.js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+    
+  <!-- Navbar -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    var nav = document.querySelector('nav');
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 20) {
+        nav.classList.add('navbar-scrolled', 'shadow');
+      } else {
+        nav.classList.remove('navbar-scrolled', 'shadow');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

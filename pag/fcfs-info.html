@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FCFS - Disk Scheduling Algorithms</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom style -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet"type="text/css" href="css/cardsStyle.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/icon.png">
+
+</head>
+
+<body>
+
+  <!-- ============================================
+  ===================== HEADER =================== -->
+
+  <header class="shadow-md">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand mr-5" href="../index.html"><img src="../images/logo.png" alt="" width="400px"></a>
+        <!-- navbar brand used to add logo in start of navbar, can also use text instead -->
+
+        
+        <!-- menu -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- ID = DATA TARGET FOR COLLAPSE BUTTON-->
+          <ul class="navbar-nav ml-auto">
+            <!-- margin left auto: ml-auto: does auto margin to left -->
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">
+                <i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <!-- dropdown menu -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                style="cursor: pointer;"><i class="fa-solid fa-play"></i> Simular</a>
+              <div class="dropdown-menu" id="custom-dropdown-menu">
+                <a class="dropdown-item" href="../FCFS/fcfs.html">FCFS</a>
+                <a class="dropdown-item" href="../SSTF/sstf.html">SSTF</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html"><i class="fa-solid fa-address-card"></i> Acerca de mí</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /menu -->
+      </div>
+    </nav>
+    <!-- /Navbar -->
+      </div>
+    </nav>
+    <!-- /Navbar -->
+
+  </header>
+
+
+  <!-- ============================================
+  ===================== MAIN =================== -->
+
+  <div class="py-3 mb-3">
+    <div class="container">
+
+      <h1>FIFO: First In First Out</h1>
+
+      </br>
+
+      <p>FIFO (First In First Outs) es el algoritmo de programación de discos más simple. 
+        Cada solicitud se toma/ejecuta en la secuencia de su llegada a la cola del disco. Como resultado, 
+        no hay hambre en este algoritmo. Sin embargo, no es rápido en comparación con otros algoritmos.</p>
+                      
+      </br>
+
+      <div class="wrapper">
+        <div class="cuadro">
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="carta">
+                <div class="row">
+                   
+                    <div class="icono">
+                      <p style="writing-mode:vertical-lr; transform: rotate(180deg);">Ventajas</p>
+                    </div>
+                    <div class="description">
+                        <ul>
+                          <li><b>Implementación Simple: </b>FIFO es fácil de entender y aplicar, ya que sigue el orden de 
+                            llegada de las solicitudes sin necesidad de cálculos adicionales.</li>
+                            <li><b>Justicia:</b> Ofrece equidad en el acceso al disco, ya que atiende las solicitudes en el 
+                              mismo orden en que llegaron, sin priorizar ninguna sobre las demás.</li>
+                            <li><b>Evita el Hambre de Procesos:</b> Garantiza que todas las solicitudes sean atendidas 
+                              eventualmente, evitando que algunos procesos queden "hambrientos" de recursos del disco.</li>
+                            <li><b>Baja Sobrecarga de Procesamiento:</b> Requiere pocos recursos adicionales para su 
+                              implementación, lo que lo hace eficiente en términos de procesamiento.</li>
+                        </ul>
+                        
+
+
+
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c2" >
+            <label for="c2" class="carta">
+                <div class="row">
+                    <div class="icono">
+                      <p class="titulo" style="writing-mode:vertical-lr; transform: rotate(180deg);">Desventajas</p>
+                    </div>
+                    <div class="description">
+                      <ul>
+                        <li>FCFS no se considera un enfoque eficiente y optimizado.</li>
+                        <li>FCFS puede llevar mucho tiempo.</li>
+                      </ul>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c3" >
+            <label for="c3" class="carta">
+              <div class="row">
+                <div class="icono">
+                  <p class="titulo" style="writing-mode:vertical-lr; transform: rotate(180deg);">Ejemplo</p>
+                </div>
+                <div class="description">
+                  <ul>
+                    <li>Tenemos un disco que contiene 34 tracks (15-34) y la cola de solicitudes contiene el 
+                      número de seguimiento:
+                      15, 24, 18, 30, 34.</li>
+                    <li>La posición actual del cabezal de lectura/escritura es 15. Ahora tenemos que calcular 
+                      el número total de pistas.</li>
+                  </ul>
+                </div>
+            </div>
+            </label>
+        </div>
+      </div>
+      </br>
+        <br>
+        <img style="width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;" class="img-fluid img-thumbnail" src="../images/fifo-graph.jpg" alt="graph of example">
+        <br> <br>
+      </ul>
+      <h3>Pasos para la implementación:</h3>
+      <ol>
+        <li>
+          Cada vez que llega un nuevo número, este se irá al espacio de disco directamente.
+        </li>
+        <li>
+          Como se evidenció en el ejemplo, del 15 no dirigiremos al 24, luego al 18 y así sucesivamente.
+        </li>
+        <li>
+          Hasta llegar al final de la lista.
+        </li>
+      </ol>
+      <a class="simulate" href="../FCFS/fcfs.html">Simular</a>
+
+    </div>
+    <!-- /container -->
+  </div>
+
+  <!--==============================
+      =============FOOTER ============-->
+      <div class="footer">
+        <div class="container">
+          <!-- Logo - About - Contact -->
+          <div class="row py-3 text-light">
+  
+            <!-- Logo -->
+            <div class="col-lg-3">
+              <a href="../index.html"><img src="../images/logo-footer.png" class="footer-logo img-fluid" width="200"
+                  draggable="false" alt="Logo"></a>
+            </div>
+  
+            <!-- About -->
+            <div class="col-lg">
+              <h3>Acerca</h3>
+              <p>
+                Esta página fue diseñada por Leonardo Trejos, estudiante
+                de Ingeniería de Sistemas y Computación de la UTP, con ayuda de diseño de @manavukani
+              </p>
+            </div>
+            <div class="col-lg-2">
+              <h3>Accesos Rápidos</h3>
+              <div class="footer-links">
+                <a href="fcfs-info.html">FIFO</a>
+                <a href="sstf-info.html">SSTF</a>
+
+              </div>
+            </div>
+  
+            <!-- /contact me -->
+            <div class="col-lg-2">
+              <h3>Contáctame</h3>
+              <div class="footer-links">
+                <a href="https://www.instagram.com/leotrejosb/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/leotrejosb"><i class="fa-brands fa-github"></i></a>
+                <a href="https://web.facebook.com/leonardo.trejosbuenaventura"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/leonardo-trejos-buenaventura-9a15ba241/"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- /Logo - About - Contact -->
+  
+        </div>
+        <!-- /container -->
+      </div>
+      <!--/footer-->
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- jQuery.js -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap.min.js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <!-- Navbar -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    var nav = document.querySelector('nav');
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 20) {
+        nav.classList.add('navbar-scrolled', 'shadow');
+      } else {
+        nav.classList.remove('navbar-scrolled', 'shadow');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
